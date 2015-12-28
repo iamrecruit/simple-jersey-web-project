@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="com.thoughtworks.fixed.assets.core.GroupsRepository" >
+
+    <resultMap id="groupMapper" type="Group">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <collection  property="members" javaType="ArrayList" column="id" ofType="User" select="selectUsersForGroup" >
+        </collection>
+
+    </resultMap>
+
+    <select id="findGroups" resultMap="groupMapper">
+        select * from MyGroup
+    </select>
+
+    <insert id="createGroup">
+        insert into MyGroup(Name) values(#{name});
+    </insert>
+
+    <select id="getGroupById" resultMap="groupMapper">
+        select * from MyGroup  where id = #{id}
+    </select>
+
+    <select id="selectUsersForGroup" resultType="User" >
+        select u.* from User u, User_Group ug where u.id = ug.user_id and ug.group_id = #{id}
+    </select>
+</mapper>

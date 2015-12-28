@@ -1,0 +1,44 @@
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+    <body>
+        <p>
+            <!--The greeting for user <span concordion:set="#firstName">Bob</span> will be:-->
+            should for users
+        <table>
+            <tr>
+                <th>uri</th>
+                <th>name</th>
+            </tr>
+            <tr concordion:execute="#result = greetingFor(#firstName)">
+                <td concordion:assertEquals="#result.uri">/users/1</td>
+                <td concordion:assertEquals="#result.name">Jerry</td>
+            </tr>
+            <!--<tr concordion:execute="#result = split(#fullName)">-->
+                <!--<td concordion:set="#fullName">David Peterson</td>-->
+                <!--<td concordion:assertEquals="#result.firstName">David</td>-->
+                <!--<td concordion:assertEquals="#result.lastName">Peterson</td>-->
+            <!--</tr>-->
+        </table>
+        </p>
+
+        <table concordion:verifyRows="#result : getUsers()">
+            <tr >
+                <th concordion:assertEquals="#result.uri">uri</th>
+                <th concordion:assertEquals="#result.name">name</th>
+            </tr>
+            <tr >
+                <td >/users/1</td>
+                <td >Jerry</td>
+            </tr>
+            <tr >
+                <td >/users/2</td>
+                <td >Tom</td>
+            </tr>
+            <!--<tr concordion:execute="#result = split(#fullName)">-->
+            <!--<td concordion:set="#fullName">David Peterson</td>-->
+            <!--<td concordion:assertEquals="#result.firstName">David</td>-->
+            <!--<td concordion:assertEquals="#result.lastName">Peterson</td>-->
+            <!--</tr>-->
+        </table>
+    
+    </body>
+</html>
