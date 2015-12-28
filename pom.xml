@@ -154,6 +154,12 @@
                 </executions>
                 <configuration>
                     <mainClass>com.thoughtworks.learning.App</mainClass>
+                    <systemProperties>
+                        <systemProperty>
+                            <key>java.util.logging.config.file</key>
+                            <value>${project.basedir}/src/test/resources/log.conf</value>
+                        </systemProperty>
+                    </systemProperties>
                 </configuration>
             </plugin>
             <plugin>

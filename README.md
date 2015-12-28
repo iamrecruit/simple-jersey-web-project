@@ -18,6 +18,11 @@ IDE使用
 
     mvn clean compile exec:java
     
+这样执行的话，不打印异常，如果想打印异常的话，需要配置java.util.logging.config.file，这样的话，需要配置log.conf的全路径，比如当项目路径在 /home/userName/develop/simple-jersey-web-project
+那么需要打印的命令就是：
+
+    mvn clean compile exec:java -Djava.util.logging.config.file=/home/userName/develop/simple-jersey-web-project/src/main/resources/log.conf
+    
 
 初始化数据库
 
@@ -40,3 +45,4 @@ IDE使用
 ## 其他
     
 test/specs 下面是一个验收测试的样例，不影响使用，后面的课程会讲到。
+

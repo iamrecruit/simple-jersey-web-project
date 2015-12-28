@@ -11,6 +11,7 @@ import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.net.URI;
@@ -25,7 +26,7 @@ public class App {
     public static void main(String[] args) {
         try {
             System.out.println("\"Hello World\" Jersey Example App");
-
+            
 //            Map<String, String> initParams = new HashMap<>();
 //            initParams.put(
 //                    ServerProperties.PROVIDER_PACKAGES,
@@ -44,6 +45,7 @@ public class App {
 
             Thread.currentThread().join();
         } catch (IOException | InterruptedException ex) {
+            System.out.println("aa");
             Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -86,15 +88,11 @@ public class App {
         final UsersRepository usersRepository = session.getMapper(UsersRepository.class);
 
         resourceConfig.register(new AbstractBinder() {
-
-
             @Override
             protected void configure() {
                 bind(usersRepository).to(UsersRepository.class);
             }
         }).packages("com.thoughtworks.learning.api");
-//        final Resource.Builder resourceBuilder = Resource.builder(ROOT_PATH_PROGRAMMATIC);
-//        resourceBuilder.addMethod("GET").handledBy(JaxrsInjectionReportingInflector.class);
 
         return resourceConfig;
     }
