@@ -3,11 +3,11 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.thoughtworks.fixed.assets</groupId>
-    <artifactId>fixed-assets-java</artifactId>
+    <groupId>com.thoughtworks.learning</groupId>
+    <artifactId>learning-jersey</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>fixed-assets-java</name>
+    <name>learning-jersey</name>
 
     <dependencyManagement>
         <dependencies>

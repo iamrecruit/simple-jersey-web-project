@@ -26,7 +26,7 @@ IDE使用
 
 建表
 
-    mvn flyway:migrate
+    mvn clean compile flyway:migrate
 
 导入数据(在pom.xml所在文件夹执行下列命令)
 

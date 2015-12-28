@@ -1,4 +1,4 @@
-create TABLE CONTACT(
+create TABLE Contact(
     ID int not null AUTO_INCREMENT,
     TYPE VARCHAR(200),
     VALUE VARCHAR(200),
